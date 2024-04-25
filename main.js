@@ -38,8 +38,14 @@ const getSize = () => {
   }
 };
 
-const colorDiv = () => {};
-
+const colorDiv = (event) => {
+  let target = event.target;
+  if (color === "random") {
+    target.style.backgroundColor = `hsl(${Math.random() * 360}, 100%, 50%)`;
+  } else {
+    target.style.backgroundColor = 'black';
+  }
+};
 const setColor = (colorChoice) => {
-  let color = colorChoice;
+  color = colorChoice;
 };
