@@ -1,3 +1,5 @@
+let color = "black";
+
 document.addEventListener("DOMContentLoaded", function () {
   createBoard(16);
   
@@ -35,3 +37,11 @@ const getSize = () => {
     return input;
   }
 };
+
+const colorDiv = () => {
+
+}
+
+const setColor = colorChoice => {
+let color = colorChoice;
+}
