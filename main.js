@@ -1,10 +1,14 @@
 document.addEventListener("DOMContentLoaded", function () {
-  createBoard(32);
+  createBoard(16);
   
   let btn_popup = document.querySelector("#popup");
+  btn_popup.addEventListener("click", function(){
+    let size = getSize();
+    createBoard(size);
+  })
 });
 
-const createBoard = (size) => {
+const createBoard = size => {
   let board = document.querySelector(".board");
 
   board.style.gridTemplateColumns = `repeat(${size}, 1fr)`;
@@ -28,5 +32,6 @@ const getSize = () => {
     message.innerHTML = "Provide a number between 1 and 100";
   } else {
     message.innerHTML = "You may now play!";
+    return input;
   }
 };
