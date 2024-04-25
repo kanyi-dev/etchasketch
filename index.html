@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Grid Sketch Pad</title>
+    <style>
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+        background-color: #f0f0f0;
+      }
+      .container {
+        display: flex;
+        flex-wrap: wrap;
+        width: 480px;
+        height: 480px;
+        border: 1px solid #333;
+      }
+      .square {
+        width: 30px;
+        height: 30px;
+        border: 1px solid #ccc;
+        box-sizing: border-box;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container" id="grid-container"></div>
+    <button onclick="createNewGrid()">Create New Grid</button>
+    <script>
+      const container = document.getElementById("grid-container");
+      const gridSize = 16;
+
+      function createGrid() {
+        for (let i = 0; i < gridSize * gridSize; i++) {
+          const square = document.createElement("div");
+          square.classList.add("square");
+          container.appendChild(square);
+        }
+      }
+
+      function clearGrid() {
+        container.innerHTML = "";
+      }
+
+      function createNewGrid() {
+        const userInput = prompt(
+          "Enter the number of squares per side (maximum 100):"
+        );
+        const newGridSize = parseInt(userInput);
+        if (!isNaN(newGridSize) && newGridSize > 0 && newGridSize <= 100) {
+          clearGrid();
+          container.style.width = `${newGridSize * 30}px`;
+          container.style.height = `${newGridSize * 30}px`;
+          for (let i = 0; i < newGridSize * newGridSize; i++) {
+            const square = document.createElement("div");
+            square.classList.add("square");
+            container.appendChild(square);
+          }
+        } else {
+          alert(
+            "Invalid input. Please enter a valid number between 1 and 100."
+          );
+        }
+      }
+
+      createGrid();
+    </script>
+  </body>
+</html>
