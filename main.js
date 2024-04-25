@@ -2,15 +2,15 @@ let color = "black";
 
 document.addEventListener("DOMContentLoaded", function () {
   createBoard(16);
-  
+
   let btn_popup = document.querySelector("#popup");
-  btn_popup.addEventListener("click", function(){
+  btn_popup.addEventListener("click", function () {
     let size = getSize();
     createBoard(size);
-  })
+  });
 });
 
-const createBoard = size => {
+const createBoard = (size) => {
   let board = document.querySelector(".board");
 
   board.style.gridTemplateColumns = `repeat(${size}, 1fr)`;
@@ -20,7 +20,7 @@ const createBoard = size => {
 
   for (let i = 0; i < numDivs; i++) {
     let div = document.createElement("div");
-      div.addEventListener("mouseover", colorDiv)
+    div.addEventListener("mouseover", colorDiv);
     board.insertAdjacentElement("beforeend", div);
   }
 };
@@ -38,10 +38,8 @@ const getSize = () => {
   }
 };
 
-const colorDiv = () => {
+const colorDiv = () => {};
 
-}
-
-const setColor = colorChoice => {
-let color = colorChoice;
-}
+const setColor = (colorChoice) => {
+  let color = colorChoice;
+};
